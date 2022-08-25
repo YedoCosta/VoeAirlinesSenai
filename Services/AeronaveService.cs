@@ -49,8 +49,42 @@ public class AeronaveService{
             aeronave.Modelo,
             aeronave.Codigo
         );
-
-
-
     } 
+    // Listar Aeronaves
+    public IEnumerable<ListaAeronaveViewModel> ListaAeronaves()
+    {
+
+        return _context.Aeronaves.Select(a=>new ListaAeronaveViewModel(a.Id, a.Modelo, a.Codigo));
+
+    }
+    public DetalheAeronaveViewModel? ListarAeronavePeloId(int id)
+    {
+        var aeronave = _context.Aeronaves.Find(id);
+        if (aeronave != null){
+            return new DetalheAeronaveViewModel(
+                aeronave.Id,
+                aeronave.Fabricante,
+                aeronave.Modelo,
+                aeronave.Codigo
+            );
+        
+        return null;
+        }
+    }
+    public DetalheAeronaveViewModel AtualizarAeronave(AtualizarAeronaveViewModel dados){
+
+        return null;
+    }
+    public void Escluir(int id){
+        var aeronave = _context.Aeronaves.Find(id);
+        if(aeronave != null){
+            _context.Remove(aeronave);
+            _context.SaveChanges();
+
+        }
+
+    }
+    /*
+      public DetalheAeronaveViewModel? AtualizarAeronave(AtualizarAeronaveViewModel dados){
+    } */
 }

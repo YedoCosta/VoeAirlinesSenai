@@ -6,7 +6,7 @@ namespace VoeAirlinesSenai.Entities;
 // Objeto é uma instância de uma classe
 public class Aeronave
 {
-    public Aeronave(string fabricante, string codigo, string modelo)
+    public Aeronave(string fabricante, string modelo, string codigo)
     {
         Fabricante = fabricante;
         Modelo = modelo;
