@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Aluno\\desktop\\voeairlines-senai\\VoeAirlinesSenai\\VoeAirlinesSenai.csproj": {}
+    "C:\\Users\\UltraHP\\Documents\\VoeAirlinesSenai\\VoeAirlinesSenai.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Aluno\\desktop\\voeairlines-senai\\VoeAirlinesSenai\\VoeAirlinesSenai.csproj": {
+    "C:\\Users\\UltraHP\\Documents\\VoeAirlinesSenai\\VoeAirlinesSenai.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Aluno\\desktop\\voeairlines-senai\\VoeAirlinesSenai\\VoeAirlinesSenai.csproj",
+        "projectUniqueName": "C:\\Users\\UltraHP\\Documents\\VoeAirlinesSenai\\VoeAirlinesSenai.csproj",
         "projectName": "VoeAirlinesSenai",
-        "projectPath": "C:\\Users\\Aluno\\desktop\\voeairlines-senai\\VoeAirlinesSenai\\VoeAirlinesSenai.csproj",
-        "packagesPath": "C:\\Users\\Aluno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Aluno\\desktop\\voeairlines-senai\\VoeAirlinesSenai\\obj\\",
+        "projectPath": "C:\\Users\\UltraHP\\Documents\\VoeAirlinesSenai\\VoeAirlinesSenai.csproj",
+        "packagesPath": "C:\\Users\\UltraHP\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\UltraHP\\Documents\\VoeAirlinesSenai\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Aluno\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\UltraHP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

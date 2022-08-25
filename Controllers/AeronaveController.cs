@@ -15,8 +15,9 @@ using VoeAirlinesSenai.ViewModel;
 // Neste caso usaremos ApiController
 [ApiController]
 
-public class AeronaveController: ControllerBase{
-    
+public class AeronaveController : ControllerBase
+{
+
 
     private readonly AeronaveService _aeronaveService;
 
@@ -25,10 +26,45 @@ public class AeronaveController: ControllerBase{
         _aeronaveService = aeronaveService;
     }
     [HttpPost]
-    public IActionResult AdicionarAeronave(AdicionarAeronaveViewModel dados){
-       
-       var aeronave = _aeronaveService.AdicionarAeronave(dados);
-       return Ok(aeronave);
+    public IActionResult AdicionarAeronave(AdicionarAeronaveViewModel dados)
+    {
+
+        var aeronave = _aeronaveService.AdicionarAeronave(dados);
+        return Ok(aeronave);
 
     }
+/*
+        [HttpPut]
+        public IActionResult AtualizarAeronave(AtualizarAeronaveViewModel dados)
+        {
+            var aeronave = _aeronaveService.AtualizarAeronave(dados);
+            return Ok(aeronave);
+        }
+*/
+    [HttpPut]
+    public IActionResult AtualizarAeronave(AtualizarAeronaveViewModel dados)
+    {
+        var aeronave = _aeronaveService.AtualizarAeronave(dados);
+        return Ok(aeronave);
+    }
+    [HttpGet]
+    public IActionResult ListaAeronaves()
+    {
+
+        var aeronave = _aeronaveService.ListaAeronaves();
+        return Ok(aeronave);
+
+    }
+    [HttpDelete]
+    public IActionResult RemoverAeronave(int id)
+    {
+     //   var aeronave = _aeronaveService.RemoverAeronave(id);
+        return Ok(RemoverAeronave(id));
+    }
+    /*
+    [HttpDelete]  
+public string  DeleteEmploye( int  id) {   
+    return  empTest.DeleteEmploye(id);  
+}  
+    */
 }
