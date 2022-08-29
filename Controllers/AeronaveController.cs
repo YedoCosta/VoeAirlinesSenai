@@ -17,15 +17,13 @@ using VoeAirlinesSenai.ViewModel;
 
 public class AeronaveController : ControllerBase
 {
-
-
     private readonly AeronaveService _aeronaveService;
 
     public AeronaveController(AeronaveService aeronaveService)
     {
         _aeronaveService = aeronaveService;
     }
-    [HttpPost]
+    [HttpPost] // - > INSERIR ! INSERT INTO
     public IActionResult AdicionarAeronave(AdicionarAeronaveViewModel dados)
     {
 
@@ -33,21 +31,8 @@ public class AeronaveController : ControllerBase
         return Ok(aeronave);
 
     }
-/*
-        [HttpPut]
-        public IActionResult AtualizarAeronave(AtualizarAeronaveViewModel dados)
-        {
-            var aeronave = _aeronaveService.AtualizarAeronave(dados);
-            return Ok(aeronave);
-        }
-*/
-    [HttpPut]
-    public IActionResult AtualizarAeronave(AtualizarAeronaveViewModel dados)
-    {
-        var aeronave = _aeronaveService.AtualizarAeronave(dados);
-        return Ok(aeronave);
-    }
-    [HttpGet]
+
+    [HttpGet] // - >  SELECT * FROM
     public IActionResult ListaAeronaves()
     {
 
@@ -55,16 +40,34 @@ public class AeronaveController : ControllerBase
         return Ok(aeronave);
 
     }
-    [HttpDelete]
-    public IActionResult RemoverAeronave(int id)
+
+    [HttpGet("{id}")] // - >  SELECT * FROM com WHERE "Id" . 
+    public IActionResult ListarAeronavePeloId(int id)
     {
-     //   var aeronave = _aeronaveService.RemoverAeronave(id);
-        return Ok(RemoverAeronave(id));
+        var aeronave = _aeronaveService.ListarAeronavePeloId(id);
+        if (aeronave != null)
+        {
+            return Ok(aeronave);
+        }
+        return NotFound();
     }
-    /*
-    [HttpDelete]  
-public string  DeleteEmploye( int  id) {   
-    return  empTest.DeleteEmploye(id);  
-}  
-    */
+
+    [HttpPut("{id}")] // - Put - UPDATE
+    public IActionResult AtualizarAeronave(int id, AtualizarAeronaveViewModel dados)
+    {
+        if (id != dados.Id)
+        {
+            return BadRequest(" o Id Informado na URL é Diferente do id Informado no Corpo da Requisição");
+        }
+        var aeronave = _aeronaveService.AtualizarAeronave(dados);
+        return Ok(aeronave);
+    }
+
+     [HttpDelete("{id}")] // - Delete 
+    public IActionResult ExcluirAeronave(int id)
+    {
+        _aeronaveService.ExcluirAeronave(id);
+        return NoContent();
+    }
+
 }

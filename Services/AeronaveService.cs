@@ -54,26 +54,21 @@ public class AeronaveService{
     } 
 
     // Atualizar Aeronave  *********************
-    public DetalheAeronaveViewModel AtualizarAeronave(AtualizarAeronaveViewModel dados)
+    public DetalheAeronaveViewModel? AtualizarAeronave(AtualizarAeronaveViewModel dados)
     {
-        var aeronave = new Aeronave(dados.Fabricante, dados.Modelo, dados.Codigo);
-        aeronave.Id = dados.Id;
-
-        _context.Update(aeronave);
-        _context.SaveChanges();
-
-        return new DetalheAeronaveViewModel
-        (
-            aeronave.Id,
-            aeronave.Fabricante,
-            aeronave.Modelo,
-            aeronave.Codigo
-        );
-
+        var aeronave = _context.Aeronaves.Find(dados.Id);
+        if(aeronave!= null){
+            aeronave.Fabricante = dados.Fabricante;
+            aeronave.Modelo = dados.Modelo;
+            aeronave.Codigo = dados.Codigo;
+            _context.Update(aeronave);
+            _context.SaveChanges();
+            return new DetalheAeronaveViewModel(aeronave.Id,aeronave.Fabricante,aeronave.Modelo,aeronave.Codigo);
+        }
+        return null;
     }
     // Listar Aeronaves  ******************************
 
-    //public IEnumerable<ListaAeronaveViewModel> ListaAeronaves()
       public IEnumerable<Aeronave> ListaAeronaves()
     {
 
@@ -81,41 +76,37 @@ public class AeronaveService{
         return _context.Aeronaves.ToList();
 
     }
-    /*  
+
+   // Listar Aeronaves  pelo Id ******************************
     public DetalheAeronaveViewModel? ListarAeronavePeloId(int id)
     {
         var aeronave = _context.Aeronaves.Find(id);
-        if (aeronave != null){
+        if (aeronave != null)
+        {
             return new DetalheAeronaveViewModel(
                 aeronave.Id,
                 aeronave.Fabricante,
                 aeronave.Modelo,
                 aeronave.Codigo
             );
-        
-        return null;
+
         }
+        return null;
     }
 
-*/
     // Deleta Aeronave  *********************
-    public DetalheAeronaveViewModel RemoverAeronave(int id)
-    {
-        var aeronaveDel = _context.Aeronaves.Find(id);
+    public void ExcluirAeronave(int id)
 
-            if (aeronaveDel == null)
+    {
+        var aeronave = _context.Aeronaves.Find(id);
+
+            if (aeronave != null)
             {
-                return new DetalheAeronaveViewModel(aeronaveDel.Id,aeronaveDel.Fabricante,aeronaveDel.Modelo,aeronaveDel.Codigo);
-            }
-            else
-            {
-                _context.Aeronaves.Remove(aeronaveDel);
+
+                _context.Aeronaves.Remove(aeronave);
                 _context.SaveChanges();
-                return new DetalheAeronaveViewModel(aeronaveDel.Id,aeronaveDel.Fabricante,aeronaveDel.Modelo,aeronaveDel.Codigo);
+                
             } 
     }
     
-    /*
-      public DetalheAeronaveViewModel? AtualizarAeronave(AtualizarAeronaveViewModel dados){
-    } */
 }

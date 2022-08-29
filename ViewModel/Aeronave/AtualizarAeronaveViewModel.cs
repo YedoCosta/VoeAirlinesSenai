@@ -3,7 +3,7 @@ namespace VoeAirlinesSenai.ViewModel;
 public class AtualizarAeronaveViewModel
 {
 
-    public AtualizarAeronaveViewModel(int id, string fabricante, string codigo, string modelo)
+    public AtualizarAeronaveViewModel(int id, string fabricante, string modelo, string codigo )
     {
         Id = id;
         Fabricante = fabricante;

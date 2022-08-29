@@ -3,7 +3,7 @@ namespace VoeAirlinesSenai.ViewModel;
 public class DetalheAeronaveViewModel
 {
 
-    public DetalheAeronaveViewModel(int id, string fabricante, string codigo, string modelo)
+    public DetalheAeronaveViewModel(int id, string fabricante, string modelo, string codigo)
     {
         Id = id;
         Fabricante = fabricante;
