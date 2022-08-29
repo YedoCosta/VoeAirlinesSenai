@@ -12,8 +12,8 @@ using VoeAirlinesSenai.Contexts;
 namespace VoeAirlinesSenai.Migrations
 {
     [DbContext(typeof(VoeAirlinesContext))]
-    [Migration("20220825194130_AlterModeloCodigoAeronave")]
-    partial class AlterModeloCodigoAeronave
+    [Migration("20220829220048_EstruturaInicial")]
+    partial class EstruturaInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -92,6 +92,11 @@ namespace VoeAirlinesSenai.Migrations
 
                     b.Property<DateTime>("DataHora")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("DescTipo")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("Observacoes")
                         .HasMaxLength(100)

@@ -16,6 +16,8 @@ public class ManutencaoConfiguration : IEntityTypeConfiguration<Manutencao>
                 .HasMaxLength(100);
         builder.Property(m => m.Tipo)
                 .IsRequired();
+        builder.Property(m => m.DescTipo)
+                .HasMaxLength(20);
         builder.HasOne(a => a.Aeronave);
 
     }

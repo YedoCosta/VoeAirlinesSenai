@@ -47,6 +47,7 @@ namespace VoeAirlinesSenai.Migrations
                     DataHora = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Observacoes = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     Tipo = table.Column<int>(type: "int", nullable: false),
+                    DescTipo = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     AeronaveId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

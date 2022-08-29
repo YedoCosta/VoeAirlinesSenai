@@ -91,6 +91,11 @@ namespace VoeAirlinesSenai.Migrations
                     b.Property<DateTime>("DataHora")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("DescTipo")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
                     b.Property<string>("Observacoes")
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
