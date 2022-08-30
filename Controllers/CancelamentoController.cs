@@ -10,65 +10,70 @@ using VoeAirlinesSenai.ViewModel;
 // Rota é um trecho - sub caminho
 
 // Anotations ou anotaçoes []
-[Route("api/aeronaves")]
+[Route("api/cancelamento")]
 // Controle pode trabalhar com AspNet MVC ou API ou Outros Recursos Web
 // Neste caso usaremos ApiController
 [ApiController]
 
-public class AeronaveController : ControllerBase
+public class CancelamentoController : ControllerBase
 {
-    private readonly AeronaveService _aeronaveService;
+    private readonly CancelamentoService _cancelamentoService;
 
-    public AeronaveController(AeronaveService aeronaveService)
+    public CancelamentoController(CancelamentoService cancelamentoService)
     {
-        _aeronaveService = aeronaveService;
+        _cancelamentoService = cancelamentoService;
     }
+
 //---------------------------------------------------------------------------------
     [HttpPost] // - > INSERIR ! INSERT INTO
-    public IActionResult AdicionarAeronave(AdicionarAeronaveViewModel dados)
+    public IActionResult AdicionarCancelamento(AdicionarCancelamentoViewModel dados)
     {
-
-        var aeronave = _aeronaveService.AdicionarAeronave(dados);
-        return Ok(aeronave);
+        var cancelamento = _cancelamentoService.AdicionarCancelamento(dados);
+        return Ok(cancelamento);
 
     }
+
 //---------------------------------------------------------------------------------
     [HttpGet] // - >  SELECT * FROM
-    public IActionResult ListaAeronaves()
+    public IActionResult ListaCancelamento()
     {
 
-        var aeronave = _aeronaveService.ListaAeronaves();
-        return Ok(aeronave);
+        var cancelamento = _cancelamentoService.ListaCancelamento();
+        return Ok(cancelamento);
 
     }
-//---------------------------------------------------------------------------------
+
+    //---------------------------------------------------------------------------------
     [HttpGet("{id}")] // - >  SELECT * FROM com WHERE "Id" . 
-    public IActionResult ListarAeronavePeloId(int id)
+    public IActionResult ListarCancelamentoPeloId(int id)
     {
-        var aeronave = _aeronaveService.ListarAeronavePeloId(id);
-        if (aeronave != null)
+        var cancelamento = _cancelamentoService.ListarCancelamentoPeloId(id);
+        if (cancelamento != null)
         {
-            return Ok(aeronave);
+            return Ok(cancelamento);
         }
         return NotFound();
     }
+    
 //---------------------------------------------------------------------------------
     [HttpPut("{id}")] // - Put - UPDATE
-    public IActionResult AtualizarAeronave(int id, AtualizarAeronaveViewModel dados)
+    public IActionResult AtualizarCancelamento(int id, AtualizarCancelamentoViewModel dados)
     {
         if (id != dados.Id)
         {
             return BadRequest(" o Id Informado na URL é Diferente do id Informado no Corpo da Requisição");
         }
-        var aeronave = _aeronaveService.AtualizarAeronave(dados);
-        return Ok(aeronave);
+        var cancelamento = _cancelamentoService.AtualizarCancelamento(dados);
+        return Ok(cancelamento);
     }
+
 //---------------------------------------------------------------------------------
      [HttpDelete("{id}")] // - Delete 
-    public IActionResult ExcluirAeronave(int id)
+    public IActionResult ExcluirCancelamento(int id)
     {
-        _aeronaveService.ExcluirAeronave(id);
+        _cancelamentoService.ExcluirCancelamento(id);
         return NoContent();
     }
 //---------------------------------------------------------------------------------
+// Fim
 }
