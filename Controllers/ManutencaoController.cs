@@ -70,7 +70,7 @@ public class ManutencaoController : ControllerBase
         return Ok(manutencao);
     }
 //---------------------------------------------------------------------------------
-    [HttpDelete("{id}")]  //Deletar Manutenção
+    [HttpDelete("{id}")]  //ExcluirManutenção
     public IActionResult ExcluirManutencao(int id)
     {
         _manutencaoService.ExcluirManutencao(id);
