@@ -66,5 +66,15 @@ public class VooController : ControllerBase
         return NoContent();
     }
     //---------------------------------------------------------------------------------
+    [HttpGet("{id}/ficha")] // - Emitir Ficha do Voo
+    public IActionResult GerarFichaDoVoo(int id)
+    {
+        var conteudo = _vooService.GerarFichaDoVoo(id);
+
+        if (conteudo != null)
+            return File(conteudo, "application/pdf");
+
+        return NotFound();
+    }
 // Fim
 }

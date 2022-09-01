@@ -181,3 +181,7 @@ C:\Users\Aluno\Meus Documentos\voeairlines-senaiCasa\VoeAirlinesSenai\obj\Debug\
 C:\Users\Aluno\Meus Documentos\voeairlines-senaiCasa\VoeAirlinesSenai\obj\Debug\net6.0\VoeAirlinesSenai.pdb
 C:\Users\Aluno\Meus Documentos\voeairlines-senaiCasa\VoeAirlinesSenai\obj\Debug\net6.0\VoeAirlinesSenai.genruntimeconfig.cache
 C:\Users\Aluno\Meus Documentos\voeairlines-senaiCasa\VoeAirlinesSenai\obj\Debug\net6.0\ref\VoeAirlinesSenai.dll
+C:\Users\UltraHP\Documents\VoeAirlinesSenai\bin\Debug\net6.0\DinkToPdf.dll
+C:\Users\UltraHP\Documents\VoeAirlinesSenai\bin\Debug\net6.0\libwkhtmltox.dll
+C:\Users\UltraHP\Documents\VoeAirlinesSenai\bin\Debug\net6.0\libwkhtmltox.dylib
+C:\Users\UltraHP\Documents\VoeAirlinesSenai\bin\Debug\net6.0\libwkhtmltox.so
